@@ -26,21 +26,28 @@ button.addEventListener("click", () => {
     DrawGrids(dimension)
 })
 
-function Clean(container) {
-    container.innerHTML = ""
+function CreateBox(boxSize) {
+    const box = document.createElement("div")
+        
+    box.style.backgroundColor = "white"
+    box.style.border = "0.1px solid black"
+    box.style.width = `${boxSize}px`
+    box.style.height = `${boxSize}px`
+    box.style.boxSizing = "border-box"
+
+    box.addEventListener("mouseenter", () => {
+        box.style.backgroundColor = "black"
+    })
+
+    return box
 }
 
 function DrawGrids(dimension) {
-    Clean(container)
+    container.innerHTML = ""
     const boxSize = 800 / dimension
 
     for(let i = 0; i < dimension*dimension; i++) {
-        const box = document.createElement("div")
-        box.style.backgroundColor = "white"
-        box.style.border = "0.1px solid black"
-        box.style.width = `${boxSize}px`
-        box.style.height = `${boxSize}px`
-        box.style.boxSizing = "border-box"
+        const box = CreateBox(boxSize)
         container.appendChild(box)
     }
 }
