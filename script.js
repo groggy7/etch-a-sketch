@@ -29,7 +29,7 @@ button.addEventListener("click", () => {
 function CreateRandomColor() {
     const letters = '0123456789ABCDEF'
 
-    const colorCode = `#`
+    let colorCode = "#"
     for(let i = 0; i < 6; i++) {
         const randChar = letters[Math.round(Math.random() * 16)]
         colorCode += randChar
