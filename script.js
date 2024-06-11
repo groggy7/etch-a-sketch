@@ -26,6 +26,18 @@ button.addEventListener("click", () => {
     DrawGrids(dimension)
 })
 
+function CreateRandomColor() {
+    const letters = '0123456789ABCDEF'
+
+    const colorCode = `#`
+    for(let i = 0; i < 6; i++) {
+        const randChar = letters[Math.round(Math.random() * 16)]
+        colorCode += randChar
+    }
+
+    return colorCode
+}
+
 function CreateBox(boxSize) {
     const box = document.createElement("div")
         
@@ -36,7 +48,7 @@ function CreateBox(boxSize) {
     box.style.boxSizing = "border-box"
 
     box.addEventListener("mouseenter", () => {
-        box.style.backgroundColor = "black"
+        box.style.backgroundColor = CreateRandomColor()
     })
 
     return box
