@@ -4,6 +4,7 @@ button.style.display = "block"
 button.style.margin = "10px auto"
 
 document.body.insertBefore(button, document.body.firstChild)
+document.body.style.backgroundColor = "black"
 
 const container = document.querySelector(".container")
 container.style.display = "flex"
@@ -46,9 +47,11 @@ function CreateBox(boxSize) {
     box.style.width = `${boxSize}px`
     box.style.height = `${boxSize}px`
     box.style.boxSizing = "border-box"
+    box.style.opacity = "1"
 
     box.addEventListener("mouseenter", () => {
         box.style.backgroundColor = CreateRandomColor()
+        box.style.opacity -= "0.1" 
     })
 
     return box
